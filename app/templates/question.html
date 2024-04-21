@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="ques-div"> 
+        <form method="post" novalidate>
+            <h2 class="qnum">Question {{ topik.t_id }}</h2>
+            <div class="dotted-spaced"></div>
+            <h4 class="ques-heading">{{ topik.ques }}<h4>
+            <hr>
+                <div>
+                    {% for question in questions %}
+                    <form method="post">
+                        <h4 class="ques-heading">{{ question.q_id}}: {{question.ques}}</h4>
+                        <div class="options-div">
+                            {{ form.options(class="list-unstyled") }}
+                        </div>
+                    </form>
+                    {% endfor %}
+                    {{ form.submit(class="btn btn-primary btn-lg sub-btn") }}
+                </div>
+        </form>
+        <!-- <span class="check-circle">
+            <i class="fas fa-check-circle"></i>
+        </span> -->
+    </div>
+
+{% endblock %}
+
